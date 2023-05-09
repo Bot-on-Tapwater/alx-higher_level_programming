@@ -2,11 +2,14 @@
 import random
 number = random.randint(-10000, 10000)
 not_number = number
-if (not_number < 0):
-    not_number *= -1
+# if (not_number < 0):
+#     not_number *= -1
 
-while (not_number > 10):
+while (not_number > 10 and number > 0):
     not_number %= 10
+
+while (not_number < -10 and number < 0):
+    not_number %= -10
 
 if (not_number > 5):
     print(f"Last digit of {number:d} is {not_number:d} and is greater than 5")
