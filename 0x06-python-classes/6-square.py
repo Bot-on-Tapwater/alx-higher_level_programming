@@ -55,11 +55,12 @@ class Square:
         """Prints the square to stdout"""
         if (self.__size == 0):
             print()
+            return
         else:
             for x in range(self.__position[1]):
                 print()
             for i in range(self.__size):
                 print(" " * self.__position[0], end="")
-                for j in range(self.__size):               
+                for j in range(self.__size):
                     print("#", end="")
                 print()
