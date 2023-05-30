@@ -1,7 +1,5 @@
 #!/usr/bin/python3
 
 class Square:
-    """
-    Empty class Square
-    """
+    """Represent a square"""
     pass
