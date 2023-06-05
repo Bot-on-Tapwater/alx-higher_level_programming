@@ -3,17 +3,22 @@
 
 
 class Rectangle:
-    """Empty class Rectangle"""
+    """Represent a rectangle.
+
+    Attributes:
+        number_of_instances (int): The number of Rectangle instances.
+        print_symbol (any): The symbol used for string representation.
+    """
 
     number_of_instances = 0
     print_symbol = "#"
 
     def __init__(self, width=0, height=0):
-        """ Initialize a new rectangle.
+         """Initialize a new Rectangle.
 
         Args:
-            __width(int): Width of rectangle
-            __height(int): Height of rectangle
+            width (int): The width of the new rectangle.
+            height (int): The height of the new rectangle.
         """
         self.height = height
         self.width = width
@@ -109,4 +114,4 @@ class Rectangle:
         Args:
             size (int): The width and height of the new Rectangle.
         """
-        return cls(size, size)
+        return (cls(size, size))
