@@ -95,22 +95,21 @@ class Rectangle:
 
         Represents the rectangle with the # character.
         """
-        my_list = ""
-        if (self.__width == 0 or self.__height == 0):
+        if self.__width == 0 or self.__height == 0:
             return ("")
-        else:
-            for j in range(self.__height):
-                for i in range(self.__width):
-                    my_list += str(self.print_symbol)
-                if (j < self.__height - 1):
-                    my_list += "\n"
-            return (my_list)
+
+        rect = []
+        for i in range(self.__height):
+            [rect.append(str(self.print_symbol)) for j in range(self.__width)]
+            if i != self.__height - 1:
+                rect.append("\n")
+        return ("".join(rect))
 
     def __repr__(self):
         """Return the string representation of the Rectangle."""
-        num1 = str(self.__width)
-        num2 = str(self.__height)
-        return "Rectangle(" + num1 + ", " + num2 + ")"
+        rect = "Rectangle(" + str(self.__width)
+        rect += ", " + str(self.__height) + ")"
+        return (rect)
 
     def __del__(self):
         """Print a message for every deletion of a Rectangle."""
