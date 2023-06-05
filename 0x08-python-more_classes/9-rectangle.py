@@ -1,4 +1,6 @@
 #!/usr/bin/python3
+# 9-rectangle.py
+# Brandon Munda <mundabrandon@outlook.com>
 """ Create class: Rectangle """
 
 
