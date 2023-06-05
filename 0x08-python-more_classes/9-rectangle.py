@@ -113,6 +113,6 @@ class Rectangle:
         return "Rectangle(" + num1 + ", " + num2 + ")"
 
     def __del__(self):
-        """Print a message for every deletion of a Rectangle."""        
+        """Print a message for every deletion of a Rectangle."""
         type(self).number_of_instances -= 1
         print("Bye rectangle...")
