@@ -33,10 +33,9 @@ class Rectangle:
     def width(self, value):
         if (not isinstance(value, int)):
             raise TypeError("width must be an integer")
-        elif (value < 0):
+        if (value < 0):
             raise ValueError("width must be >= 0")
-        else:
-            self.__width = value
+        self.__width = value
 
     @property
     def height(self):
@@ -47,21 +46,20 @@ class Rectangle:
     def height(self, value):
         if (not isinstance(value, int)):
             raise TypeError("height must be an integer")
-        elif (value < 0):
+        if (value < 0):
             raise ValueError("height must be >= 0")
-        else:
-            self.__height = value
+        self.__height = value
 
     def area(self):
         """Return the area of the Rectangle."""
-        return (self.height * self.width)
+        return (self.__height * self.__width)
 
     def perimeter(self):
         """Return the perimeter of the Rectangle."""
-        if (self.height == 0 or self.width == 0):
+        if (self.__height == 0 or self.__width == 0):
             return (0)
         else:
-            return ((self.height + self.width) * 2)
+            return ((self.__height + self.__width) * 2)
 
     @staticmethod
     def bigger_or_equal(rect_1, rect_2):
@@ -98,23 +96,23 @@ class Rectangle:
         Represents the rectangle with the # character.
         """
         my_list = ""
-        if (self.width == 0 or self.height == 0):
+        if (self.__width == 0 or self.__height == 0):
             return ("")
         else:
-            for j in range(self.height):
-                for i in range(self.width):
+            for j in range(self.__height):
+                for i in range(self.__width):
                     my_list += str(self.print_symbol)
-                if (j < self.height - 1):
+                if (j < self.__height - 1):
                     my_list += "\n"
             return (my_list)
 
     def __repr__(self):
         """Return the string representation of the Rectangle."""
-        num1 = str(self.width)
-        num2 = str(self.height)
+        num1 = str(self.__width)
+        num2 = str(self.__height)
         return "Rectangle(" + num1 + ", " + num2 + ")"
 
     def __del__(self):
-        """Print a message for every deletion of a Rectangle."""
-        print("Bye rectangle...")
+        """Print a message for every deletion of a Rectangle."""        
         type(self).number_of_instances -= 1
+        print("Bye rectangle...")
