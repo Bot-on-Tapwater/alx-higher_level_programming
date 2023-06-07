@@ -24,10 +24,10 @@ def matrix_divided(matrix, div):
 
     if not all(isinstance(row, list) for row in matrix):
         raise TypeError(message)
-    
+
     for i in matrix:
         for j in i:
-            if not isinstance(j , (float, int)):
+            if not isinstance(j, (float, int)):
                 raise TypeError(message)
 
     if not all(len(row) == len(matrix[0]) for row in matrix):
