@@ -1,0 +1,99 @@
+doctest_in_help.txt
+===============================
+ How to Use doctest_in_help.py
+===============================
+
+This library is very simple, since it only has one function called
+``text_indentation()``.
+
+Usage
+=====
+
+The function takes a string as input and inserts a double newline after
+each occurrence of the characters ".", "?", and ":".
+
+::
+
+    >>> text_indentation = __import__('5-text_indentation').text_indentation
+    >>> text = "Hello. This is a test. How are you? I'm fine: thank you."
+    >>> text_indentation(text)
+    Hello.
+    <BLANKLINE>
+    This is a test.
+    <BLANKLINE>
+    How are you?
+    <BLANKLINE>
+    I'm fine:
+    <BLANKLINE>
+    thank you.
+    <BLANKLINE>
+
+
+The function correctly inserts double newlines after each punctuation mark.
+
+::
+
+    >>> text = "Hello.. This is a test??? How are you?: I'm fine..."
+    >>> text_indentation(text)
+    Hello.
+    <BLANKLINE>
+    .
+    <BLANKLINE>
+    This is a test?
+    <BLANKLINE>
+    ?
+    <BLANKLINE>
+    ?
+    <BLANKLINE>
+    How are you?
+    <BLANKLINE>
+    :
+    <BLANKLINE>
+    I'm fine.
+    <BLANKLINE>
+    .
+    <BLANKLINE>
+    .
+    <BLANKLINE>
+
+
+The function handles cases where there are multiple spaces between words.
+
+::
+
+    >>> text = "Hello. This is a test?   How are you?   I'm fine."
+    >>> text_indentation(text)
+    Hello.
+    <BLANKLINE>
+    This is a test?
+    <BLANKLINE>
+    How are you?
+    <BLANKLINE>
+    I'm fine.
+    <BLANKLINE>
+
+
+The function correctly handles cases where there are spaces after punctuation marks.
+
+::
+
+    >>> text = "Hello.   This is a test.  How are you?   I'm fine."
+    >>> text_indentation(text)
+    Hello.
+    <BLANKLINE>
+    This is a test.
+    <BLANKLINE>
+    How are you?
+    <BLANKLINE>
+    I'm fine.
+    <BLANKLINE>
+
+
+The function raises a `TypeError` if the input is not a string.
+
+::
+
+    >>> text_indentation(123)
+    Traceback (most recent call last):
+        ...
+    TypeError: text must be a string
