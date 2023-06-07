@@ -12,7 +12,7 @@ Examples
 
     >>> say_my_name = __import__('3-say_my_name').say_my_name
     >>> say_my_name("Alice")
-    My name is Alice
+    My name is Alice 
 
 ::
 
@@ -59,7 +59,7 @@ AIB Test Cases
 ::
 
     >>> say_my_name("Brennan")
-    My name is Brennan
+    My name is Brennan 
 
 
 ::
