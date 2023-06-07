@@ -1,5 +1,45 @@
-# 0-add_integer.txt
+doctest_in_help.txt
+===============================
+ How to Use doctest_in_help.py
+===============================
 
->>> add_integer = __import__('0-add_integer').add_integer 
->>> print(add_integer(11, 13))
-24
+This library is very simple, since it only has one function called
+``add_integer()``.
+
+Numbers
+=======
+
+``add_integer()`` returns the sum of its arguments. For numbers,
+that value is equivalent to using the ``+`` operator.
+
+::
+
+    >>> add_integer = __import__('0-add_integer').add_integer 
+    >>> add_integer(2, 3)
+    5
+
+It also works with floating-point values.
+
+::
+
+    >>> add_integer(2.0, 3)
+    5
+
+Non-Numbers
+===========
+
+Because ``+`` is also defined on data types other than numbers,
+``add_integer()`` works just as well if one of the arguments is a
+string, a list, or a tuple.
+
+::
+
+    >>> add_integer('a', 3)
+    Traceback (most recent call last):
+        ...
+    TypeError: a must be an integer
+
+    >>> add_integer(['A', 'B', 'C'], 2)
+    Traceback (most recent call last):
+        ...
+    TypeError: a must be an integer
