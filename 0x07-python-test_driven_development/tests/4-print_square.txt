@@ -1,0 +1,71 @@
+doctest_in_help.txt
+===============================
+ How to Use doctest_in_help.py
+===============================
+
+This library is very simple, since it only has one function called
+``print_square()``.
+
+Valid Inputs
+============
+
+The function should correctly print a square of the specified size using the '#' character.
+
+::
+    >>> print_square = __import__('4-print_square').print_square
+    >>> print_square(3)
+    ###
+    ###
+    ###
+
+    >>> print_square(5)
+    #####
+    #####
+    #####
+    #####
+    #####
+
+Edge Cases
+==========
+
+The function should handle edge cases appropriately.
+
+Zero Size
+---------
+
+If the size is 0, the function should not print anything.
+
+::
+
+    >>> print_square(0)
+
+Negative Size
+-------------
+
+If the size is a negative integer, the function should raise a ValueError.
+
+::
+
+    >>> print_square(-2)
+    Traceback (most recent call last):
+        ...
+    ValueError: size must be >= 0
+
+Non-integer Size
+----------------
+
+If the size is not an integer, the function should raise a TypeError.
+
+::
+
+    >>> print_square(3.5)
+    Traceback (most recent call last):
+        ...
+    TypeError: size must be an integer
+
+::
+
+    >>> print_square("4")
+    Traceback (most recent call last):
+        ...
+    TypeError: size must be an integer
