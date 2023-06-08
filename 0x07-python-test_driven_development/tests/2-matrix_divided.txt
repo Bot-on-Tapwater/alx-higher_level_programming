@@ -82,7 +82,8 @@ If the `div` argument is zero, a `ZeroDivisionError` is raised.
     ...
     ZeroDivisionError: division by zero
 
-AIB Test Cases:
+AOB Test Cases:
+===============
 
 ::
 

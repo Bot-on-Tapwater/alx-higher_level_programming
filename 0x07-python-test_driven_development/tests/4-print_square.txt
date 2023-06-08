@@ -70,7 +70,7 @@ If the size is not an integer, the function should raise a TypeError.
         ...
     TypeError: size must be an integer
 
-AIB Test Cases
+AOB Test Cases
 ==============
 
 ::

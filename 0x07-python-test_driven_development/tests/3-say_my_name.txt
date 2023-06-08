@@ -41,7 +41,7 @@ Examples
     TypeError: last_name must be a string
 
 
-AIB Test Cases
+AOB Test Cases
 ==============
 
 ::
