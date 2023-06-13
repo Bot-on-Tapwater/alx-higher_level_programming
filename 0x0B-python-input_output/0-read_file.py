@@ -7,5 +7,5 @@ def read_file(filename=""):
     """
     Read text file
     """
-    with open(filename, 'r', encoding="utf-8") as textfile:
-        print(textfile.read())
+    with open(filename, encoding="utf-8") as textfile:
+        print(textfile.read(), end="")
