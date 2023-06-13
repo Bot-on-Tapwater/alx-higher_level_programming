@@ -14,7 +14,10 @@ def add_item():
     add arguments to python list
     and save to file
     """
-    item_list = []
+    try:
+        item_list = load_from_json_file("add_item.json")
+    except FileNotFoundError:
+        item_list = []
 
     for args in sys.argv[1:]:
         item_list.append(args)
