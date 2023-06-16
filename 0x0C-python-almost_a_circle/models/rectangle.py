@@ -129,60 +129,75 @@ class Rectangle(Base):
         String represantation
         """
         return f"[Rectangle] ({self.id}) {self.__x}/{self.__y}\
-- {self.__width}/{self.__height}"
+ - {self.__width}/{self.__height}"
 
     def update(self, *args, **kwargs):
         """
         update instance attributes
         """
-        try:
+        if (len(args) > 0):
+            try:
 
-            self.id = args[0]
-            print(f"\tUpdate id with args")
-        except IndexError:
-            pass
-
-        try:
-
-            self.__width = args[1]
-            print(f"\tUpdate width with args")
-        except IndexError:
-            pass
-
-        try:
-
-            self.__x = args[3]
-            print(f"\tUpdate x with args")
-        except IndexError:
-            pass
-
-        try:
-
-            self.__y = args[4]
-            print(f"\tUpdate y with args")
-        except IndexError:
-            pass
-
-        try:
-
-            self.__height = args[2]
-            print(f"\tUpdate height with args")
-        except IndexError:
-            pass
-
-        args_list = ["id", "width", "height", "x", "y"]
-
-        for attrs in args_list:
-            if attrs in kwargs:
-                if attrs == "width":
-                    self.__width = kwargs[attrs]
-                if attrs == "height":
-                    self.__height = kwargs[attrs]
-                if attrs == "x":
-                    self.__x = kwargs[attrs]
-                if attrs == "y":
-                    self.__y = kwargs[attrs]
-                if attrs == "id":
-                    self.id = kwargs[attrs]
-            else:
+                self.id = args[0]
+                print(f"\tUpdate id with args")
+            except IndexError:
                 pass
+
+            try:
+
+                self.__width = args[1]
+                print(f"\tUpdate width with args")
+            except IndexError:
+                pass
+
+            try:
+
+                self.__x = args[3]
+                print(f"\tUpdate x with args")
+            except IndexError:
+                pass
+
+            try:
+
+                self.__y = args[4]
+                print(f"\tUpdate y with args")
+            except IndexError:
+                pass
+
+            try:
+
+                self.__height = args[2]
+                print(f"\tUpdate height with args")
+            except IndexError:
+                pass
+
+        else:
+            args_list = ["id", "width", "height", "x", "y"]
+
+            for attrs in args_list:
+                if attrs in kwargs:
+                    if attrs == "width":
+                        self.__width = kwargs[attrs]
+                    if attrs == "height":
+                        self.__height = kwargs[attrs]
+                    if attrs == "x":
+                        self.__x = kwargs[attrs]
+                    if attrs == "y":
+                        self.__y = kwargs[attrs]
+                    if attrs == "id":
+                        self.id = kwargs[attrs]
+                else:
+                    pass
+
+    def to_dictionary(self):
+        """
+        Return dictionary representation
+        """
+        my_dict = {}
+
+        my_dict['id'] = self.id
+        my_dict['width'] = self.__width
+        my_dict['height'] = self.__height
+        my_dict['x'] = self.__x
+        my_dict['y'] = self.__y
+        return my_dict
