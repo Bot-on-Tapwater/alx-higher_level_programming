@@ -60,21 +60,65 @@ class Test_Rectangle(unittest.TestCase):
     """
     Test cases associated with setters and getters
     """
-    def test_set_attr(self):
+    def test_set_attr_width(self):
         self.my_rect.width = 121
         self.assertEqual(self.my_rect.width, 121)
 
+    def test_set_attr_height(self):
         self.my_rect.height = 1738
         self.assertEqual(self.my_rect.height, 1738)
 
+    def test_set_attr_x(self):
         self.my_rect.x = 10
         self.assertEqual(self.my_rect.x, 10)
 
+    def test_set_attr_y(self):
         self.my_rect.y = 15
         self.assertEqual(self.my_rect.y, 15)
 
+    def test_set_attr_id(self):
         self.my_rect.id = 99
         self.assertEqual(self.my_rect.id, 99)
+
+    def test_set_attr_width_zero(self):
+        with self.assertRaises(ValueError):
+            self.my_rect.width = 0
+
+    def test_set_attr_height_zero(self):
+        with self.assertRaises(ValueError):
+            self.my_rect.height = 0
+
+    def test_set_attr_x_negative(self):
+        with self.assertRaises(ValueError):
+            self.my_rect.x = -10
+
+    def test_set_attr_y_negative(self):
+        with self.assertRaises(ValueError):
+            self.my_rect.y = -15
+
+    def test_set_attr_width_negative(self):
+        with self.assertRaises(ValueError):
+            self.my_rect.width = -5
+
+    def test_set_attr_height_negative(self):
+        with self.assertRaises(ValueError):
+            self.my_rect.height = -5
+
+    def test_set_attr_x_nonints(self):
+        with self.assertRaises(TypeError):
+            self.my_rect.x = "String"
+
+    def test_set_attr_y_nonints(self):
+        with self.assertRaises(TypeError):
+            self.my_rect.y = [11]
+
+    def test_set_attr_width_nonints(self):
+        with self.assertRaises(TypeError):
+            self.my_rect.width = {}
+
+    def test_set_attr_height_nonints(self):
+        with self.assertRaises(TypeError):
+            self.my_rect.height = (1,)
 
 if __name__ == '__main__':
     unittest.main()
