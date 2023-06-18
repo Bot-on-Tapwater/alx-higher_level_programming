@@ -109,4 +109,4 @@ class Base:
         # Append the instances created above to a list
 
         # Return that list
-        return list_insts
+        return (list_insts)
