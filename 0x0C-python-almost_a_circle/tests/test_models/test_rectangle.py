@@ -6,6 +6,7 @@ Unittests for Class Rectangle
 import unittest
 import math
 import sys
+import os
 from models.rectangle import Rectangle
 from io import StringIO
 
@@ -15,7 +16,13 @@ class Test_Rectangle(unittest.TestCase):
         self.my_rect = Rectangle(10, 15, 20, 25, 120)
         self.small_rect = Rectangle(2, 2, 2, 2)
         self.my_dict = {'x': 2, 'width': 10, 'id': 1, 'height': 7, 'y': 8}
-    
+        self.file_name = "Rectangle.json"
+        
+        if os.path.exists(self.file_name):
+            os.remove(self.file_name)
+
+        self.json_str = self.my_rect.to_json_string([self.my_rect.to_dictionary()])
+
     def tearDown(self):
         pass
         # print("Finished running tests")
@@ -262,6 +269,13 @@ class Test_Rectangle(unittest.TestCase):
     
     def test_to_json_string_nondict(self):
         self.assertIsInstance(self.my_rect.to_json_string([1, 2, 3]), str)
+    
+    """
+    Cases associated with save_to_file()
+    """
+    def test_save_to_file(self):
+        self.my_rect.save_to_file([self.my_rect, self.small_rect])
+        self.assertTrue(os.path.exists(self.file_name))
 
 if __name__ == '__main__':
     unittest.main()
