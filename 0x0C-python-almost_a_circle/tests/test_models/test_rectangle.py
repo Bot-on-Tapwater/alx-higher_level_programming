@@ -192,8 +192,62 @@ class Test_Rectangle(unittest.TestCase):
         """To be looked into"""
         self.my_rect.update(66, 77, 88, 99, 55, 44, 22, 11, 33)
         self.assertEqual(str(self.my_rect), "[Rectangle] (66) 99/55 - 77/88")
-    def test_update_args_nonints(self):
-        self.my_rect.update("k", "j", "ls")
+
+    def test_update_args_nonints_args(self):
+        with self.assertRaises(TypeError):
+            self.my_rect.update("k", "j", "ls")
+    
+    def test_update_dims_negative_args(self):
+        with self.assertRaises(ValueError):
+            self.my_rect.update(1, -1, -2)
+
+    def test_update_dims_zero_args(self):
+        with self.assertRaises(ValueError):
+            self.my_rect.update(1, 0, 0)
+
+    def test_update_offs_negative_args(self):
+        with self.assertRaises(ValueError):
+            self.my_rect.update(1, 1, 1, -2, -2)
+    
+    def test_update_args_nonints_kwargs(self):
+        with self.assertRaises(TypeError):
+            self.my_rect.update(x=27, y=19, height=[1], width=[2])
+    
+    def test_update_dims_negative_kwargs(self):
+        with self.assertRaises(ValueError):
+            self.my_rect.update(x=27, y=19, height=-1, width=-2)
+
+    def test_update_dims_zero_kwargs(self):
+        with self.assertRaises(ValueError):
+            self.my_rect.update(x=27, y=19, height=0, width=0)
+
+    def test_update_offs_negative_kwargs(self):
+        with self.assertRaises(ValueError):
+            self.my_rect.update(x=-27, y=-19, height=1, width=1)
+
+    """
+    Cases associated with to_dictionary()
+    """
+    def test_to_dictionary(self):
+        self.assertIsInstance(self.my_rect.to_dictionary(), dict)
+        
+    def test_to_dictionary_attrs_prsnt(self):
+        self.assertIn("width", self.my_rect.to_dictionary())
+        self.assertIn("height", self.my_rect.to_dictionary())
+        self.assertIn("x", self.my_rect.to_dictionary())
+        self.assertIn("y", self.my_rect.to_dictionary())
+        self.assertIn("id", self.my_rect.to_dictionary())
+
+        # self.my_rect = Rectangle(10, 15, 20, 25, 120)
+        self.assertEqual(self.my_rect.width, self.my_rect.to_dictionary()["width"])
+        self.assertEqual(self.my_rect.height, self.my_rect.to_dictionary()["height"])
+        self.assertEqual(self.my_rect.x, self.my_rect.to_dictionary()["x"])
+        self.assertEqual(self.my_rect.y, self.my_rect.to_dictionary()["y"])
+        self.assertEqual(self.my_rect.id, self.my_rect.to_dictionary()["id"])
+
+    def test_to_dictionary_with_args(self):
+        with self.assertRaises(TypeError):
+            self.my_rect.to_dictionary("string")
 
 if __name__ == '__main__':
     unittest.main()
