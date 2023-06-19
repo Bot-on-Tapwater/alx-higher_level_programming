@@ -32,7 +32,7 @@ class Base:
         """
         Convert dictionary to JSON repr
         """
-        if (len(list_dictionaries) == 0):
+        if (len(list_dictionaries) == 0 or list_dictionaries is None):
             return "[]"
         else:
             return json.dumps(list_dictionaries)
