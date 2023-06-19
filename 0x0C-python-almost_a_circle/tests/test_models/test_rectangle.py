@@ -14,6 +14,7 @@ class Test_Rectangle(unittest.TestCase):
         # print("\tCreate Rectangle object my_rect")
         self.my_rect = Rectangle(10, 15, 20, 25, 120)
         self.small_rect = Rectangle(2, 2, 2, 2)
+        self.my_dict = {'x': 2, 'width': 10, 'id': 1, 'height': 7, 'y': 8}
     
     def tearDown(self):
         pass
@@ -248,6 +249,19 @@ class Test_Rectangle(unittest.TestCase):
     def test_to_dictionary_with_args(self):
         with self.assertRaises(TypeError):
             self.my_rect.to_dictionary("string")
+
+    """
+    Cases associated with to_json_string
+    """
+    def test_to_json_string(self):
+        self.assertIsInstance(self.my_rect.to_json_string(self.my_dict), str)
+
+    def test_to_json_string_no_args(self):
+        with self.assertRaises(TypeError):
+            self.my_rect.to_json_string()
+    
+    def test_to_json_string_nondict(self):
+        self.assertIsInstance(self.my_rect.to_json_string([1, 2, 3]), str)
 
 if __name__ == '__main__':
     unittest.main()
