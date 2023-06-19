@@ -112,16 +112,16 @@ class Rectangle(Base):
         """
         Calculate area of the rectangle
         """
-        return (self.height * self.width)
+        return (self.__height * self.__width)
 
     def display(self):
         """
         Prints a rectangle shape
         """
-        for k in range(self.y):
+        for k in range(self.__y):
             print()
-        for i in range(self.height):
-            print("{}{}".format(" " * self.x, "#" * self.width), end="")
+        for i in range(self.__height):
+            print("{}{}".format(" " * self.__x, "#" * self.__width), end="")
             print()
 
     def __str__(self):
@@ -139,39 +139,32 @@ class Rectangle(Base):
             try:
 
                 self.id = args[0]
-                # print(f"\tUpdate id with args")
             except IndexError:
                 pass
 
             try:
 
                 self.width = args[1]
-                # print(f"\tUpdate width with args")
             except IndexError:
                 pass
-            
+
             try:
 
                 self.height = args[2]
-                # print(f"\tUpdate height with args")
             except IndexError:
                 pass
 
             try:
 
                 self.x = args[3]
-                # print(f"\tUpdate x with args")
             except IndexError:
                 pass
 
             try:
 
                 self.y = args[4]
-                # print(f"\tUpdate y with args")
             except IndexError:
                 pass
-
-            
 
         else:
             args_list = ["id", "width", "height", "x", "y"]
