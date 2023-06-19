@@ -4,12 +4,16 @@
 Unittests for Class Rectangle
 """
 import unittest
+import math
+import sys
 from models.rectangle import Rectangle
+from io import StringIO
 
 class Test_Rectangle(unittest.TestCase):
     def setUp(self):
         # print("\tCreate Rectangle object my_rect")
         self.my_rect = Rectangle(10, 15, 20, 25, 120)
+        self.small_rect = Rectangle(2, 2, 2, 2)
     
     def tearDown(self):
         pass
@@ -119,6 +123,77 @@ class Test_Rectangle(unittest.TestCase):
     def test_set_attr_height_nonints(self):
         with self.assertRaises(TypeError):
             self.my_rect.height = (1,)
+
+    """
+    Cases associated with area() method
+    """
+    def test_area(self):
+        self.assertEqual(self.my_rect.area(), 150)
+    
+    def test_area_with_args(self):
+        with self.assertRaises(TypeError):
+            self.my_rect.area(10)
+    
+    """
+    Cases associated with display() method
+    """
+    def test_display(self):
+        # Redirect stdout to a StringIO object
+        captured_output = StringIO()
+        sys.stdout = captured_output
+
+        # Call the function
+        self.small_rect.display()
+
+        # Get the value of the printed output
+        printed_output = captured_output.getvalue().strip()
+
+        # Reset stdout
+        sys.stdout = sys.__stdout__
+
+        # Assert on the expected output
+        expected_output = '\n  ##\n  ##\n'.strip()
+        self.assertEqual(printed_output, expected_output)
+    
+    def test_display_with_args(self):
+        with self.assertRaises(TypeError):
+            self.my_rect.display(10, 43)
+    
+    """
+    Cases associated with __str__()
+    """
+    def test_str(self):
+        self.assertEqual(str(self.my_rect), "[Rectangle] (120) 20/25 - 10/15")
+
+    """
+    Cases associated with update()
+    """
+    def test_update_no_args(self):
+        self.my_rect.update()
+        self.assertEqual(str(self.my_rect), "[Rectangle] (120) 20/25 - 10/15")
+    
+    def test_update_args(self):
+        self.my_rect.update(66, 77, 88, 99, 55)
+        self.assertEqual(str(self.my_rect), "[Rectangle] (66) 99/55 - 77/88")
+    
+    def test_update_kwargs(self):
+        self.my_rect.update(x=27, y=19)
+        self.assertEqual(str(self.my_rect), "[Rectangle] (120) 27/19 - 10/15")
+    
+    def test_update_args_and_kwargs(self):
+        self.my_rect.update(65, x=27, y=19)
+        self.assertEqual(str(self.my_rect), "[Rectangle] (65) 20/25 - 10/15")
+    
+    def test_update_kwargs_nonattrs(self):
+        self.my_rect.update(z=27, q=19)
+        self.assertEqual(str(self.my_rect), "[Rectangle] (120) 20/25 - 10/15")
+    
+    def test_update_excess_args(self):
+        """To be looked into"""
+        self.my_rect.update(66, 77, 88, 99, 55, 44, 22, 11, 33)
+        self.assertEqual(str(self.my_rect), "[Rectangle] (66) 99/55 - 77/88")
+    def test_update_args_nonints(self):
+        self.my_rect.update("k", "j", "ls")
 
 if __name__ == '__main__':
     unittest.main()

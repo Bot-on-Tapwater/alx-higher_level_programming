@@ -112,24 +112,24 @@ class Rectangle(Base):
         """
         Calculate area of the rectangle
         """
-        return (self.__height * self.__width)
+        return (self.height * self.width)
 
     def display(self):
         """
         Prints a rectangle shape
         """
-        for k in range(self.__y):
+        for k in range(self.y):
             print()
-        for i in range(self.__height):
-            print("{}{}".format(" " * self.__x, "#" * self.__width), end="")
+        for i in range(self.height):
+            print("{}{}".format(" " * self.x, "#" * self.width), end="")
             print()
 
     def __str__(self):
         """
         String represantation
         """
-        return f"[Rectangle] ({self.id}) {self.__x}/{self.__y}\
- - {self.__width}/{self.__height}"
+        return f"[Rectangle] ({self.id}) {self.x}/{self.y}\
+ - {self.width}/{self.height}"
 
     def update(self, *args, **kwargs):
         """
@@ -139,37 +139,39 @@ class Rectangle(Base):
             try:
 
                 self.id = args[0]
-                print(f"\tUpdate id with args")
+                # print(f"\tUpdate id with args")
             except IndexError:
                 pass
 
             try:
 
-                self.__width = args[1]
-                print(f"\tUpdate width with args")
+                self.width = args[1]
+                # print(f"\tUpdate width with args")
+            except IndexError:
+                pass
+            
+            try:
+
+                self.height = args[2]
+                # print(f"\tUpdate height with args")
             except IndexError:
                 pass
 
             try:
 
-                self.__x = args[3]
-                print(f"\tUpdate x with args")
+                self.x = args[3]
+                # print(f"\tUpdate x with args")
             except IndexError:
                 pass
 
             try:
 
-                self.__y = args[4]
-                print(f"\tUpdate y with args")
+                self.y = args[4]
+                # print(f"\tUpdate y with args")
             except IndexError:
                 pass
 
-            try:
-
-                self.__height = args[2]
-                print(f"\tUpdate height with args")
-            except IndexError:
-                pass
+            
 
         else:
             args_list = ["id", "width", "height", "x", "y"]
@@ -177,13 +179,13 @@ class Rectangle(Base):
             for attrs in args_list:
                 if attrs in kwargs:
                     if attrs == "width":
-                        self.__width = kwargs[attrs]
+                        self.width = kwargs[attrs]
                     if attrs == "height":
-                        self.__height = kwargs[attrs]
+                        self.height = kwargs[attrs]
                     if attrs == "x":
-                        self.__x = kwargs[attrs]
+                        self.x = kwargs[attrs]
                     if attrs == "y":
-                        self.__y = kwargs[attrs]
+                        self.y = kwargs[attrs]
                     if attrs == "id":
                         self.id = kwargs[attrs]
                 else:
@@ -196,8 +198,8 @@ class Rectangle(Base):
         my_dict = {}
 
         my_dict['id'] = self.id
-        my_dict['width'] = self.__width
-        my_dict['height'] = self.__height
-        my_dict['x'] = self.__x
-        my_dict['y'] = self.__y
+        my_dict['width'] = self.width
+        my_dict['height'] = self.height
+        my_dict['x'] = self.x
+        my_dict['y'] = self.y
         return my_dict

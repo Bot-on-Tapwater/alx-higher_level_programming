@@ -10,9 +10,9 @@ class Test_Base(unittest.TestCase):
     def test_create_instance(self):
         self.assertIsInstance(Base(), Base)
 
-    def test_create_instance_fail(self):
-        """This test will fail"""
-        self.assertNotIsInstance(Base(), Base)
+    # def test_create_instance_fail(self):
+    #     """This test will fail"""
+    #     self.assertNotIsInstance(Base(), Base)
 
 if __name__ == '__main__':
     unittest.main()
