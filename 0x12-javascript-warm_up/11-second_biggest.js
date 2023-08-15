@@ -6,13 +6,14 @@ if (process.argv.length <= 3) {
   console.log(0);
 } else {
   process.argv.forEach(element => {
-    if (element > lgst) {
-      lgst = element;
+    if (parseInt(element) > lgst) {
+      lgst = parseInt(element);
     }
   });
+  /* console.log(`Largest elem: ${lgst}`); */
   process.argv.forEach(element => {
-    if (element > sndLgst && element < lgst) {
-      sndLgst = element;
+    if (parseInt(element) > sndLgst && parseInt(element) < lgst) {
+      sndLgst = parseInt(element);
     }
   });
   console.log(sndLgst);
