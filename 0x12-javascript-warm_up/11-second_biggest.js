@@ -1,24 +1,15 @@
 #!/usr/bin/node
+let lgst = 0;
+let sndLgst = 0;
 
-#!/usr/bin/node
-
-const arg = process.argv[2];
-
-function factorial(num)
-{
-	if (num > 0)
-	{
-		return (num * factorial((num - 1)));
-	}
-	else
-	{
-		return (1);
-	}
+if (process.argv.length <= 3) {
+  console.log(0);
+} else {
+  process.argv.forEach(element => {
+    if (element > lgst) {
+      sndLgst = lgst;
+      lgst = element;
+    }
+  });
+  console.log(sndLgst);
 }
-
-if (Number.isInteger(Number(arg))) {
-	console.log(`${factorial(parseInt(arg))}`);
-      } else {
-	console.log(`${1}`);
-      }
-
