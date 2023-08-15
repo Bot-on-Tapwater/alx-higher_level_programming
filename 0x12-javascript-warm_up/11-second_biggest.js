@@ -7,8 +7,12 @@ if (process.argv.length <= 3) {
 } else {
   process.argv.forEach(element => {
     if (element > lgst) {
-      sndLgst = lgst;
       lgst = element;
+    }
+  });
+  process.argv.forEach(element => {
+    if (element > sndLgst && element < lgst) {
+      sndLgst = element;
     }
   });
   console.log(sndLgst);
