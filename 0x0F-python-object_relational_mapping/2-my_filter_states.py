@@ -18,7 +18,7 @@ if __name__ == "__main__":
     cur = db.cursor()
 
     qry = "SELECT * \
-        FROM states WHERE states.name = '{}' ORDER BY \
+        FROM states WHERE states.name = '{}' ORDER BY\
             states.id ASC;".format(state_name)
 
     cur.execute(qry)
