@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""List all states starting with N"""
+"""List all states with specified state name, SAFE"""
 
 if __name__ == "__main__":
     import MySQLdb
