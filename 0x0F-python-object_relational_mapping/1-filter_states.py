@@ -16,7 +16,8 @@ if __name__ == "__main__":
     """Create cursor object"""
     cur = db.cursor()
 
-    qry = "SELECT * FROM states WHERE name LIKE 'N%' ORDER BY states.id ASC;"
+    qry = "SELECT * FROM states WHERE name LIKE BINARY\
+          'N%' ORDER BY states.id ASC;"
 
     cur.execute(qry)
 
