@@ -32,4 +32,4 @@ if __name__ == '__main__':
 
     """Iterateing through results of query"""
     for state, city in qry:
-        print(f"{state.name}: ({state.id}) {city.name}")
+        print(f"{state.name}: ({city.id}) {city.name}")
