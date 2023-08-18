@@ -31,7 +31,7 @@ if __name__ == '__main__':
     """Sample query"""
     states = session.query(State).order_by(State.id.asc()).first()
 
-    if (not states is None):
+    if (states is not None):
         print(f"{states.id}: {states.name}")
 
     else:
