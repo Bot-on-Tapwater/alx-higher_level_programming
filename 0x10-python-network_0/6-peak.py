@@ -3,21 +3,29 @@
 
 
 def find_peak(list_of_integers):
-    "Finds peak in a list of ints"
-    if (len(list_of_integers) > 0):
-        for index, value in enumerate(list_of_integers):
-            try:
-                lft_int = list_of_integers[(index - 1)]
-            except IndexError:
-                lft_int = 0
+    """
+    Find a peak in a list of unsorted integers.
 
-            try:
-                rgt_int = list_of_integers[(index + 1)]
-            except IndexError:
-                rgt_int = 0
+    Args:
+        list_of_integers (List[int]): List of unsorted integers.
 
-            if (value >= lft_int and value >= rgt_int):
-                return value
+    Returns:
+        int or None: The peak element if found, or None if the list is empty.
 
-    else:
+    Complexity:
+        O(log(n))
+    """
+    if not list_of_integers:
         return None
+
+    left, right = 0, len(list_of_integers) - 1
+
+    while left < right:
+        mid = (left + right) // 2
+
+        if list_of_integers[mid] > list_of_integers[mid + 1]:
+            right = mid
+        else:
+            left = mid + 1
+
+    return list_of_integers[left]
