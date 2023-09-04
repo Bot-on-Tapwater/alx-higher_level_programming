@@ -18,7 +18,8 @@ if __name__ == '__main__':
     decoded_content = content.decode("utf-8")
 
     # print the content
-    print(f"Body response:\n\t- type: {type(content)}\n\t- content: {content}\n\t- utf8 content: {decoded_content}")
+    print(f"Body response:\n\t- type: {type(content)}\
+          \n\t- content: {content}\n\t- utf8 content: {decoded_content}")
 
     # close the response
     response.close()
