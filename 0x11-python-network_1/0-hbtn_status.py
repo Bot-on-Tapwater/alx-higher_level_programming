@@ -2,14 +2,12 @@
 """Fetch from a host"""
 
 if __name__ == '__main__':
-
     import urllib.request
 
     # url to fetch
     url = "https://alx-intranet.hbtn.io/status"
 
     # response from url
-    # response = urllib.request.urlopen(url)
     with urllib.request.urlopen(url) as response:
 
         # read content of response
@@ -19,8 +17,7 @@ if __name__ == '__main__':
         decoded_content = content.decode("utf-8")
 
         # print the content
-        print(f"Body response:\n\t- type: {type(content)}\
-            \n\t- content: {content}\n\t- utf8 content: {decoded_content}")
-
-    # close the response
-    # response.close()
+        print(f"Body response:")
+        print(f"\t- type: {type(content)}")
+        print(f"\t- content: {content}")
+        print(f"\t- utf8 content: {decoded_content}")
