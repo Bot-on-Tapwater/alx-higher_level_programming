@@ -9,17 +9,18 @@ if __name__ == '__main__':
     url = "https://alx-intranet.hbtn.io/status"
 
     # response from url
-    response = urllib.request.urlopen(url)
+    # response = urllib.request.urlopen(url)
+    with urllib.request.urlopen(url) as response:
 
-    # read content of response
-    content = response.read()
+        # read content of response
+        content = response.read()
 
-    # decode content to a string
-    decoded_content = content.decode("utf-8")
+        # decode content to a string
+        decoded_content = content.decode("utf-8")
 
-    # print the content
-    print(f"Body response:\n\t- type: {type(content)}\
-          \n\t- content: {content}\n\t- utf8 content: {decoded_content}")
+        # print the content
+        print(f"Body response:\n\t- type: {type(content)}\
+            \n\t- content: {content}\n\t- utf8 content: {decoded_content}")
 
     # close the response
-    response.close()
+    # response.close()
