@@ -7,7 +7,7 @@ if __name__ == '__main__':
 
     # url to fetch
     url = sys.argv[1]
-    
+
     # response from url
     with urllib.request.urlopen(url) as response:
 
