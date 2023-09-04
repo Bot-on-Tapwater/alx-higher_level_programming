@@ -9,7 +9,7 @@ if __name__ == '__main__':
 
     with requests.get(url) as response:
         # read content of response
-        content = response.headers['X-Request-Id']
+        content = response.headers.get('X-Request-Id')
 
         # print the content
         print(content)
