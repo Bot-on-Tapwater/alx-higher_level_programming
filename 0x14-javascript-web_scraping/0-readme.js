@@ -5,7 +5,7 @@ const filePath = process.argv[2];
 
 const fs = require('fs');
 
-fs.readFile(filePath, (err, inputD) => {
+fs.readFile(filePath, (err, contents) => {
   if (err) throw err;
-  console.log(inputD.toString());
+  console.log(contents.toString());
 });
